@@ -16,6 +16,7 @@ include '../Database/db_con.php';
         <h1 class="login-header">Log In</h1>
         <?php if(!empty($error_message)): ?>
             <p style="color: red;"><?php echo $error_message; ?></p>
+            if(!pass)
         <?php endif; ?>
         <p>Welcome back! Please log in to continue.</p>
         <form action="login_process.php" method="post">
