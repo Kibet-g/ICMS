@@ -32,7 +32,7 @@ include '../Database/db_con.php';
                 <h1>Welcome to the Sondu Police Station UTUMISHI KWA WOTE</h1>
                 
                 <?php if (isset($_SESSION['name'])): ?>
-    <p>Welcome <strong style="color: #00008B;"><?php echo $_SESSION['name']; ?></strong>!</p>
+    <p>Welcome <strong style="color: #00008B;"><?php echo $_SESSION['name']; ?></strong></p>
 <?php endif; ?>
             </div>
 
@@ -75,26 +75,34 @@ include '../Database/db_con.php';
     </header>
     <main>
         <div class="container">
-            <section class="categories">
-                <h2>CATEGORIES</h2>
-                <div class="categories__item">
-                    <a href="#">
-                        <img src="IMAGES/reportcase.svg" alt="Report Case/Incident">
-                        <h3>REPORT CASE/INCIDENT</h3>
-                    </a>
-                </div>
-                <div class="categories__item">
-                    <a href="#">
-                        <img src="IMAGES/track_case.svg" alt="Track Case">
-                        <h3>TRACK CASE</h3>
-                    </a>
-                </div>
-                <div class="categories__item">
-                    <a href="#">
-                        <img src="IMAGES/view_ob.svg" alt="View OB Number">
-                        <h3>VIEW/ DOWNLOAD OB NUMBER</h3>
-                    </a>
-                </div>
+        <section class="categories">
+        <h2>CATEGORIES</h2>
+        <div class="categories__item">
+            <a href="#">
+                <img src="IMAGES/reportcase.svg" alt="Report Case/Incident">
+                <h3>REPORT CASE/INCIDENT</h3>
+            </a>
+        </div>
+        <div class="categories__item">
+            <a href="#">
+                <img src="IMAGES/track_case.svg" alt="Track Case">
+                <h3>TRACK CASE</h3>
+            </a>
+        </div>
+        <div class="categories__item">
+            <a href="#">
+                <img src="IMAGES/view_ob.svg" alt="View OB Number">
+                <h3>VIEW/ DOWNLOAD OB NUMBER</h3>
+            </a>
+        </div>
+        <div class="categories__item">
+            <a href="#">
+                <img src="IMAGES/community.svg" alt="Community Engagement">
+                <h3>COMMUNITY ENGAGEMENT</h3>
+            </a>
+        </div>
+    </section>
+</div>
             </section>
         </div>
     </main>
