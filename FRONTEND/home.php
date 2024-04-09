@@ -11,6 +11,10 @@ if (!isset($_SESSION['email'])) {
 include '../Database/db_con.php';
 ?>
 
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . "/ICMSSYSTEM/FRONTEND/constants/homeheader.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,87 +26,34 @@ include '../Database/db_con.php';
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header__logo">
-                <img src="IMAGES/sondu_logo.png" alt="Sondu Police Station Logo">
-            </div>
-            <div class="home_image">
-                <img src="IMAGES/homepage_banner.svg" alt="Large Image">
-                <h1>Welcome to the Sondu Police Station UTUMISHI KWA WOTE</h1>
-                
-                <?php if (isset($_SESSION['name'])): ?>
-    <p>Welcome <strong style="color: #00008B;"><?php echo $_SESSION['name']; ?></strong></p>
-<?php endif; ?>
-            </div>
-
-            <div class="settings">
-                <a href="#" id="settings-toggle">
-                    <i class="fas fa-cog"></i> <!-- Font Awesome settings icon -->
-                    Settings
-                </a>
-                <div class="dropdown-content" id="settings-dropdown">
-                    <!-- JavaScript for the dropdown -->
-                    <script>
-                        function toggleDropdown() {
-                            var dropdown = document.getElementById("settings-dropdown");
-                            if (dropdown.style.display === "none" || dropdown.style.display === "") {
-                                dropdown.style.display = "block";
-                            } else {
-                                dropdown.style.display = "none";
-                            }
-                        }
-
-                        document.getElementById("settings-toggle").addEventListener("click", toggleDropdown);
-                    </script>
-
-                    <!-- Dropdown content -->
-                    <a href="forgot_password.php">
-                        <i class="fas fa-lock"></i> <!-- Font Awesome lock icon -->
-                        Change Password
-                    </a>
-                    <a href="logout.php">
-                        <i class="fas fa-sign-out-alt"></i> <!-- Font Awesome sign-out icon -->
-                        Logout
-                    </a>
-                    <a href="view_details.php">
-                        <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
-                        View Details
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
     <main>
         <div class="container">
-        <section class="categories">
-        <h2>CATEGORIES</h2>
-        <div class="categories__item">
-            <a href="report.php">
-                <img src="IMAGES/reportcase.svg" alt="Report Case/Incident">
-                <h3>REPORT CASE/INCIDENT</h3>
-            </a>
-        </div>
-        <div class="categories__item">
-            <a href="#">
-                <img src="IMAGES/track_case.svg" alt="Track Case">
-                <h3>TRACK CASE</h3>
-            </a>
-        </div>
-        <div class="categories__item">
-            <a href="#">
-                <img src="IMAGES/view_ob.svg" alt="View OB Number">
-                <h3>VIEW/ DOWNLOAD OB NUMBER</h3>
-            </a>
-        </div>
-        <div class="categories__item">
-            <a href="#">
-                <img src="IMAGES/community.svg" alt="Community Engagement">
-                <h3>COMMUNITY ENGAGEMENT</h3>
-            </a>
-        </div>
-    </section>
-</div>
+            <section class="categories">
+                <h2>CATEGORIES</h2>
+                <div class="categories__item">
+                    <a href="report.php">
+                        <img src="IMAGES/reportcase.svg" alt="Report Case/Incident">
+                        <h3>REPORT CASE/INCIDENT</h3>
+                    </a>
+                </div>
+                <div class="categories__item">
+                    <a href="#">
+                        <img src="IMAGES/track_case.svg" alt="Track Case">
+                        <h3>TRACK CASE</h3>
+                    </a>
+                </div>
+                <div class="categories__item">
+                    <a href="#">
+                        <img src="IMAGES/view_ob.svg" alt="View OB Number">
+                        <h3>VIEW/ DOWNLOAD OB NUMBER</h3>
+                    </a>
+                </div>
+                <div class="categories__item">
+                    <a href="#">
+                        <img src="IMAGES/community.svg" alt="Community Engagement">
+                        <h3>COMMUNITY ENGAGEMENT</h3>
+                    </a>
+                </div>
             </section>
         </div>
     </main>
