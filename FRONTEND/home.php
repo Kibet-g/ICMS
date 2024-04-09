@@ -1,12 +1,14 @@
 <?php
-// Start session to access session variables
 session_start();
 
-// Check if user is logged in, if not, redirect to login page
-if (isset($_SESSION['user_id'])) {
+// Check if the user is not logged in
+if (!isset($_SESSION['email'])) {
+    // Redirect the user to the login page
     header("Location: login.php");
-    exit(); // Stop script execution after redirect
+    exit(); // Stop further execution
 }
+
+include '../Database/db_con.php';
 ?>
 
 <!DOCTYPE html>
@@ -28,45 +30,47 @@ if (isset($_SESSION['user_id'])) {
             <div class="home_image">
                 <img src="IMAGES/homepage_banner.svg" alt="Large Image">
                 <h1>Welcome to the Sondu Police Station UTUMISHI KWA WOTE</h1>
+                
+                <?php if (isset($_SESSION['name'])): ?>
+    <p>Welcome <strong style="color: #00008B;"><?php echo $_SESSION['name']; ?></strong>!</p>
+<?php endif; ?>
             </div>
 
             <div class="settings">
-    <a href="#" id="settings-toggle">
-        <i class="fas fa-cog"></i> <!-- Font Awesome settings icon -->
-        Settings
-    </a>
-    <div class="dropdown-content" id="settings-dropdown">
-        <!-- JavaScript for the dropdown -->
-        <script>
-            function toggleDropdown() {
-                var dropdown = document.getElementById("settings-dropdown");
-                if (dropdown.style.display === "none" || dropdown.style.display === "") {
-                    dropdown.style.display = "block";
-                } else {
-                    dropdown.style.display = "none";
-                }
-            }
+                <a href="#" id="settings-toggle">
+                    <i class="fas fa-cog"></i> <!-- Font Awesome settings icon -->
+                    Settings
+                </a>
+                <div class="dropdown-content" id="settings-dropdown">
+                    <!-- JavaScript for the dropdown -->
+                    <script>
+                        function toggleDropdown() {
+                            var dropdown = document.getElementById("settings-dropdown");
+                            if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                                dropdown.style.display = "block";
+                            } else {
+                                dropdown.style.display = "none";
+                            }
+                        }
 
-            document.getElementById("settings-toggle").addEventListener("click", toggleDropdown);
-        </script>
+                        document.getElementById("settings-toggle").addEventListener("click", toggleDropdown);
+                    </script>
 
-        <!-- Dropdown content -->
-        <a href="change_password.php">
-            <i class="fas fa-lock"></i> <!-- Font Awesome lock icon -->
-            Change Password
-        </a>
-        <a href="logout.php">
-            <i class="fas fa-sign-out-alt"></i> <!-- Font Awesome sign-out icon -->
-            Logout
-        </a>
-        <a href="view_details.php">
-            <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
-            View Details
-        </a>
-    </div>
-</div>
-</div>
-
+                    <!-- Dropdown content -->
+                    <a href="forgot_password.php">
+                        <i class="fas fa-lock"></i> <!-- Font Awesome lock icon -->
+                        Change Password
+                    </a>
+                    <a href="logout.php">
+                        <i class="fas fa-sign-out-alt"></i> <!-- Font Awesome sign-out icon -->
+                        Logout
+                    </a>
+                    <a href="view_details.php">
+                        <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
+                        View Details
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
     <main>
