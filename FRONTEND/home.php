@@ -78,7 +78,7 @@ include '../Database/db_con.php';
         <section class="categories">
         <h2>CATEGORIES</h2>
         <div class="categories__item">
-            <a href="#">
+            <a href="report.php">
                 <img src="IMAGES/reportcase.svg" alt="Report Case/Incident">
                 <h3>REPORT CASE/INCIDENT</h3>
             </a>
