@@ -7,31 +7,38 @@ body {
     background-color: #f0f0f0;
 }
 
-.signup-form {
-    width: 400px;
-    height: auto;
-    background-color: #fff;
-    padding: 100px;
-    border-radius: 40px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-.signup-form h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
+nav ul li {
+    display: inline;
+    margin-left: 20px;
 }
 
-.signup-form p {
-    margin-bottom: 15px;
-    color: #666;
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
 }
 
-.signup-form input[type="text"],
-.signup-form input[type="password"],
-.signup-form input[type="number"],
-.signup-form input[type="email"],
-.signup-form .custom-select {
+nav ul li a:hover {
+    color: #ffc107;
+}
+
+form {
+    margin: 20px;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="time"],
+form input[type="file"],
+form textarea {
     width: 100%;
     padding: 15px;
     margin-bottom: 15px;
@@ -40,11 +47,33 @@ body {
     font-size: 16px;
 }
 
-.signup-form input[type="checkbox"] {
-    margin-right: 10px;
+form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
-.signup-form .signup-btn {
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.report-form{
+    width: 400px;
+    height: auto;
+    background-color: #fff;
+    padding: 100px;
+    border-radius: 40px;
+    box-shadow: #000000;
+    text-align: center;
+}
+.report-form h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  .report-form .report-btn {
     display: block;
     width: 100%;
     padding: 15px;
@@ -54,22 +83,7 @@ body {
     border-radius: 3px;
     font-size: 16px;
     cursor: pointer;
-}
-
-.signup-form a {
-    color: #003DB5;
-    text-decoration: none;
-}
-
-/* Styling the options */
-.custom-select option {
-    padding: 15px;
-    font-size: 16px;
-    background-color: #fff;
-    color: #333;
-}
-
-/* Styling the dropdown arrow */
-.custom-select::-ms-expand {
-    display: none; /* Hides default arrow in IE10 and IE11 */
-}
+  }
+  
+  
+  
