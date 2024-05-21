@@ -1,8 +1,17 @@
 <?php
+<<<<<<< HEAD
 include '../Database/db_con.php';
 
 session_start();
 
+=======
+//ONE CANT ACCESS THIS PAGE WITHOUT LOGGING IN
+include './constants/authenticator.php';
+?>
+<?php
+include '../Database/db_con.php';
+
+>>>>>>> 2546f13 (Changes on the site)
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the form data

@@ -23,10 +23,17 @@
             </div>
 
             <div class="settings">
+<<<<<<< HEAD
                 <a href="#" id="settings-toggle">
                     <i class="fas fa-cog"></i> <!-- Font Awesome settings icon -->
                     Settings
                 </a>
+=======
+                
+                    <i class="fas fa-cog"></i> <!-- Font Awesome settings icon -->
+                    Settings
+                
+>>>>>>> 2546f13 (Changes on the site)
                 <div class="dropdown-content" id="settings-dropdown">
                     <!-- JavaScript for the dropdown -->
                     <script>
@@ -47,14 +54,24 @@
                         <i class="fas fa-lock"></i> <!-- Font Awesome lock icon -->
                         Change Password
                     </a>
+<<<<<<< HEAD
                     <a href="logout.php">
                         <i class="fas fa-sign-out-alt"></i> <!-- Font Awesome sign-out icon -->
                         Logout
                     </a>
+=======
+>>>>>>> 2546f13 (Changes on the site)
                     <a href="view_details.php">
                         <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
                         View Details
                     </a>
+<<<<<<< HEAD
+=======
+                    <a href="logout.php">
+                        <i class="fas fa-sign-out-alt"></i> <!-- Font Awesome sign-out icon -->
+                        Logout
+                    </a>
+>>>>>>> 2546f13 (Changes on the site)
                 </div>
             </div>
         </div>

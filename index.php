@@ -10,7 +10,11 @@
 <body>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/ICMSSYSTEM/FRONTEND/constants/header.php'; ?>
 
+<<<<<<< HEAD
 <marquee behavior="scroll" direction="left" scrollamount="5">WELCOME TO SONDU POLICE STATION WHERE WE SERVE EVERYONE EQUALLY FOR THE TO CATER FOR ALL YOUR NEEDS <br> GET STARTED NOW AND REPORT CRIME ANONYMOUSLY</marquee>
+=======
+<marquee behavior="scroll" direction="left" scrollamount="5">WELCOME TO SONDU POLICE STATION WHERE WE SERVE EVERYONE EQUALLY #UTUMISHI KWA WOTE<br> GET STARTED NOW AND REPORT CRIME FICHUA CRIME</marquee>
+>>>>>>> 2546f13 (Changes on the site)
 <div class="large-image">
   <img src="FRONTEND/IMAGES/homepage_banner.svg" alt="Large Image">
 </div>

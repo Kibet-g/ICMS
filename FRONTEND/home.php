@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 session_start();
 
 // Check if the user is not logged in
@@ -13,6 +14,14 @@ include '../Database/db_con.php';
 
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/ICMSSYSTEM/FRONTEND/constants/homeheader.php";
+=======
+//ONE CANT ACCESS THIS PAGE WITHOUT LOGGING IN
+include './constants/authenticator.php';
+?>
+
+<?php
+include './constants/homeheader.php';
+>>>>>>> 2546f13 (Changes on the site)
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +40,21 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/ICMSSYSTEM/FRONTEND/constants/homehea
             <section class="categories">
                 <h2>CATEGORIES</h2>
                 <div class="categories__item">
+<<<<<<< HEAD
                     <a href="report.php">
+=======
+                    <a href="upload_case.php">
+>>>>>>> 2546f13 (Changes on the site)
                         <img src="IMAGES/reportcase.svg" alt="Report Case/Incident">
                         <h3>REPORT CASE/INCIDENT</h3>
                     </a>
                 </div>
                 <div class="categories__item">
+<<<<<<< HEAD
                     <a href="#">
+=======
+                    <a href="track_case.php">
+>>>>>>> 2546f13 (Changes on the site)
                         <img src="IMAGES/track_case.svg" alt="Track Case">
                         <h3>TRACK CASE</h3>
                     </a>

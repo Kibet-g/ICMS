@@ -24,8 +24,13 @@
       <li class="dropdown">
         <a href="#">Crime Options <i class="fas fa-angle-down"></i></a>
         <div class="dropdown-content">
+<<<<<<< HEAD
           <a href="#">Report crime online in person</a>
           <a href="#">Check crime Progress</a>
+=======
+          <a href="./FRONTEND/login.php">Report crime online in person</a>
+          <a href="FRONTEND/login.php">Check crime Progress</a>
+>>>>>>> 2546f13 (Changes on the site)
             </div>
           </li>
           <li><a href="#">Contact Us</a></li>

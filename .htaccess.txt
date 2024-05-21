@@ -1,2 +1,6 @@
 RewriteEngine On
 RewriteRule ^$ FRONTEND/index.php [L]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2546f13 (Changes on the site)

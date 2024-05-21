@@ -30,7 +30,11 @@ body {
   .signup-form input[type="text"],
   .signup-form input[type="password"],
   .signup-form input[type="number"] {
+<<<<<<< HEAD
     width: 100%;
+=======
+    width: 100%; 
+>>>>>>> 2546f13 (Changes on the site)
     padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #ccc;

@@ -18,6 +18,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         session_start();
         $_SESSION['email'] = $email; // Store user email in session variable
         $_SESSION['name'] = $user_data['name']; // Store user name in session variable
+<<<<<<< HEAD
+=======
+        $_SESSION['id_number'] = $user_data['id_number']; // Store id_number in session variable
+>>>>>>> 2546f13 (Changes on the site)
         header("Location: home.php"); // Redirect to home page
         exit();
     } else {
