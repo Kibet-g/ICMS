@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Number Input</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        select {
+            width: 60px;
+            padding: 5px;
+            margin: 5px 0;
+        }
+        
+        #primary-phone, #secondary-phone {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .digit {
+            width: 40px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <form>
+        <label for="birthday">Birthday:</label>
+        <select id="month" name="month">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
+        <select id="day" name="day">
+            <!-- Options for day 1-31 -->
+            <script>
+                for (let i = 1; i <= 31; i++) {
+                    document.write('<option value="' + i + '">' + i + '</option>');
+                }
+            </script>
+        </select>
+        <select id="year" name="year">
+            <option value="2017">2017</option>
+            <!-- Add more years as needed -->
+        </select>
+
+        <label for="primary-phone">Primary phone number:</label>
+        <div id="primary-phone">
+            <select name="digit1" class="digit">
+                <!-- Options for digit 0-9 -->
+                <script>
+                    for (let i = 0; i <= 9; i++) {
+                        document.write('<option value="' + i + '">' + i + '</option>');
+                    }
+                </script>
+            </select>
+            <select name="digit2" class="digit">
+                <!-- Options for digit 0-9 -->
+                <script>
+                    for (let i = 0; i <= 9; i++) {
+                        document.write('<option value="' + i + '">' + i + '</option>');
+                    }
+                </script>
+            </select>
+            <!-- Repeat as needed for other digits -->
+            <!-- Make sure to have 10 selects for a full phone number -->
+        </div>
+
+        <label for="secondary-phone">Secondary phone number:</label>
+        <div id="secondary-phone">
+            <select name="digit1" class="digit">
+                <!-- Options for digit 0-9 -->
+                <script>
+                    for (let i = 0; i <= 9; i++) {
+                        document.write('<option value="' + i + '">' + i + '</option>');
+                    }
+                </script>
+            </select>
+            <select name="digit2" class="digit">
+                <!-- Options for digit 0-9 -->
+                <script>
+                    for (let i = 0; i <= 9; i++) {
+                        document.write('<option value="' + i + '">' + i + '</option>');
+                    }
+                </script>
+            </select>
+            <!-- Repeat as needed for other digits -->
+            <!-- Make sure to have 10 selects for a full phone number -->
+        </div>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

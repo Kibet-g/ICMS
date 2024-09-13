@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.nav-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.prev-button {
+    background-color: #007BFF; /* Blue */
+}
+
+.next-button {
+    background-color: #28A745; /* Green */
+}
+
+.nav-buttons button:hover {
+    opacity: 0.8;
+}

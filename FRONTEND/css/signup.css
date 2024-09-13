@@ -1,0 +1,93 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .signup-form {
+    width: 400px;
+    height: auto;
+    background-color: #fff;
+    padding: 100px;
+    border-radius: 40px;
+    box-shadow: #000000;
+    text-align: center;
+  }
+  
+  .signup-form h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .signup-form p {
+    margin-bottom: 15px;
+    color: #666;
+  }
+  
+  .signup-form input[type="text"],
+  .signup-form input[type="password"],
+  .signup-form input[type="number"] {
+    width: 100%; 
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  .signup-form input[type="email"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  .signup-form input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .signup-form .signup-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #003DB5;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .signup-form a {
+    color: #003DB5;
+    text-decoration: none;
+  }
+  
+  /* Styling the select element */
+  .custom-select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  /* Styling the options */
+  .custom-select option {
+    padding: 15px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Styling the dropdown arrow */
+  .custom-select::-ms-expand {
+    display: none; /* Hides default arrow in IE10 and IE11 */
+  }
+  

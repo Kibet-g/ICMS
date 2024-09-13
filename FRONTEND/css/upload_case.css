@@ -1,0 +1,87 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul li a:hover {
+    color: #ffc107;
+}
+
+form {
+    margin: 20px;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="time"],
+form input[type="file"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+form input[type="submit"],
+.report-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover,
+.report-btn:hover {
+    background-color: #0056b3;
+}
+
+.report-form {
+    width: 400px;
+    height: auto;
+    background-color: #fff;
+    padding: 100px;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow */
+    text-align: center;
+}
+
+.report-form h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.report-form .report-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #003db5;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}

@@ -1,0 +1,69 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+table {
+    width: 80%; /* Adjust width as needed */
+    margin: 20px auto; /* Center the table on the page */
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain; /* Preserve aspect ratio of the image */
+    cursor: pointer;
+}
+
+/* Style for the Verify Case button and Assign OB Number button */
+.verify-btn, .ob-btn {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Set a fixed height */
+    margin-bottom: 50px; /* Add margin below the buttons for spacing */
+    padding: auto;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.verify-btn {
+    background-color: #069c0b; 
+}
+/* Remove underline from links with the class 'verify-btn' */
+a.verify-btn {
+    text-decoration: none;
+}
+
+a.ob-btn{
+    text-decoration: none;
+}
+
+.ob-btn {
+    background-color: #003DB5; 
+}
+
+/* Remove the bottom margin from the last button */
+td button:last-child {
+    margin-bottom: 0;
+}
+
+/* Button hover effects */
+.verify-btn:hover, .ob-btn:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,116 @@
+body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-position: center;
+    }
+
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #F0F8FF;
+    padding: 16px;
+    position: relative;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home_image {
+    text-align: center;
+}
+
+.home_image img {
+    max-width: 300px; /* Adjust image size */
+}
+
+header .header__logo {
+    width: 150px;
+}
+
+header .header__logo img {
+    height: 105px;
+    width: 105px;
+}
+
+.settings {
+    display: flex;
+    align-items: center;
+}
+
+.settings i {
+    font-size: 20px; /* Adjust icon size */
+    margin-right: 5px;
+}
+
+.settings a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+main {
+    padding: 30px 0;
+}
+
+section.categories {
+    text-align: center;
+}
+
+section.categories h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.categories__item {
+    display: inline-block;
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+}
+
+.categories__item img {
+    fill: #003DB5; 
+    width: 50px; /* Adjust the width of the SVG */
+    height: 50px; /* Maintain aspect ratio */
+}
+
+.categories__item a {
+    text-decoration: none; 
+}
+
+
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.settings:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
