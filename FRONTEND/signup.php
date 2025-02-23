@@ -3,10 +3,11 @@ session_start(); // Start the session
 
 // Include the database connection file
 include '../Database/db_con.php';
+include 'constants/log_event.php'; // EVENTS HAPPENING
 
 if (isset($_POST['submit'])) {
     $errors = array(); // Initialize an empty array to store validation errors
-    
+
     $name = mysqli_real_escape_string($conn, $_POST["name"]);
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $id_number = mysqli_real_escape_string($conn, $_POST["id_number"]);
@@ -33,7 +34,7 @@ if (isset($_POST['submit'])) {
     if (empty($id_number)) {
         $errors['id_number'] = "ID Number is required";
     } elseif (!preg_match("/^\d{8}$/", $id_number)) {
-        $errors['id_number'] = "ID Number should have exactly 9 digits";
+        $errors['id_number'] = "ID Number should have exactly 8 digits";
     }
     if (empty($idtype)) {
         $errors['idtype'] = "ID Type is required";
@@ -92,11 +93,17 @@ if (isset($_POST['submit'])) {
         exit(); // Stop further execution
     }
 
+    // Hash the password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
     // Insert user data into the database
-    $password = ($password); // Hash the password
-    $insert = "INSERT INTO users (name, email, id_number, idtype, mobile_no, password,confirmpassword) VALUES ('$name', '$email', '$id_number', '$idtype', '$mobile_no', '$password', '$confirmpassword')";
+    $insert = "INSERT INTO users (name, email, id_number, idtype, mobile_no, password) VALUES ('$name', '$email', '$id_number', '$idtype', '$mobile_no', '$hashed_password')";
     $result = mysqli_query($conn, $insert) or die(mysqli_error($conn));
     if ($result) {
+
+         // Log the signup event
+         log_event($email, 'User signed up');
+
         $_SESSION['success_message'] = "User Created!";
         header("Location: login.php");
         exit();

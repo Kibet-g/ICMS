@@ -16,18 +16,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
     // Query to fetch police details from the database
-    $sql = "SELECT * FROM police WHERE police_id = '$police_id' AND police_email = '$police_email' AND password = '$password'";
+    $sql = "SELECT * FROM police WHERE police_id = '$police_id' AND police_email = '$police_email'";
     $result = mysqli_query($conn, $sql);
 
-    // Check if the police record exists and the password is correct
+    // Check if the police record exists
     if (mysqli_num_rows($result) == 1) {
-        // Police is authenticated, set session variables
-        $_SESSION['police_id'] = $police_id;
-        $_SESSION['loggedin'] = true;
-        
-        // Redirect to assigned_cases.php page
-        header("Location: assigned_cases.php");
-        exit;
+        $row = mysqli_fetch_assoc($result);
+
+        // Check if the account is within the disabled period
+        $current_time = date('Y-m-d H:i:s');
+        if ($current_time >= $row['start_disable'] && $current_time <= $row['end_disable']) {
+            $error_message = "Your account is currently disabled. Please try again later.";
+        } elseif ($password === $row['password']) {  // Assuming the password is stored in plaintext; ideally, it should be hashed
+            // Police is authenticated, set session variables
+            $_SESSION['police_id'] = $police_id;
+            $_SESSION['police_email'] = $police_email;
+            $_SESSION['loggedin'] = true;
+            
+            // Redirect to assigned_cases.php page
+            header("Location: assigned_cases.php");
+            exit;
+        } else {
+            // Invalid credentials
+            $error_message = "Invalid credentials. Please try again.";
+        }
     } else {
         // Invalid credentials
         $error_message = "Invalid credentials. Please try again.";

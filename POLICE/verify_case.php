@@ -2,11 +2,11 @@
 // Include the database connection
 include '../Database/db_con.php';
 
-// Retrieve the id_number from the URL parameter
-$id_number = isset($_GET['id_number']) ? mysqli_real_escape_string($conn, $_GET['id_number']) : '';
+// Retrieve the case_number from the URL parameter
+$case_number = isset($_GET['case_number']) ? mysqli_real_escape_string($conn, $_GET['case_number']) : '';
 
-// Query to retrieve data from the `cases` table using the id_number
-$query = "SELECT * FROM cases WHERE id_number = '$id_number'";
+// Query to retrieve data from the `cases` table using the case_number
+$query = "SELECT * FROM cases WHERE case_number = '$case_number'";
 $result = mysqli_query($conn, $query);
 
 // Start HTML output
@@ -34,6 +34,11 @@ if ($row = mysqli_fetch_assoc($result)) {
     echo '</div>';
 
     echo '<div class="form-group">';
+    echo '<label for="case_number">Case Number:</label>';
+    echo '<input type="text" id="case_number" value="' . htmlspecialchars($row['case_number']) . '" readonly>';
+    echo '</div>';
+
+    echo '<div class="form-group">';
     echo '<label for="id_number">ID Number:</label>';
     echo '<input type="text" id="id_number" value="' . htmlspecialchars($row['id_number']) . '" readonly>';
     echo '</div>';
@@ -57,8 +62,8 @@ if ($row = mysqli_fetch_assoc($result)) {
     $time = htmlspecialchars($row['occurence_time']);
     $formatted_time = date("H:i", strtotime($time));
     echo '<div class="form-group">';
-    echo '    <label for="occurrence_time">Occurrence Time:</label>';
-    echo '    <input type="time" id="occurrence_time" value="' . $formatted_time . '" readonly>';
+    echo '<label for="occurrence_time">Occurrence Time:</label>';
+    echo '<input type="time" id="occurrence_time" value="' . $formatted_time . '" readonly>';
     echo '</div>';
 
     echo '<div class="form-group">';
@@ -76,7 +81,7 @@ if ($row = mysqli_fetch_assoc($result)) {
     // Buttons for Verify Case and Decline Case
     echo '<div class="buttons-container">';
     echo '<button type="button" class="verify-btn" onclick="verifyCase()">Verify Case</button>';
-    echo '<button type="button" class="decline-btn" onclick="declineCase()">Decline Case</button>';
+    echo '<button type="button" class="decline-btn" onclick="confirmDecline()">Decline Case</button>';
     echo '</div>';
 
     echo '</form>';
@@ -86,38 +91,120 @@ if ($row = mysqli_fetch_assoc($result)) {
 }
 
 echo '</div>';
+
 echo '</body>';
 echo '</html>';
 
 // Add the SweetAlert2 script and custom script for handling the button clicks
 echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
 echo '<script>';
+
 echo 'function verifyCase() {';
+echo '    Swal.fire({';
+echo '        title: "Are you sure?",';
+echo '        text: "Do you want to verify this case?",';
+echo '        icon: "warning",';
+echo '        showCancelButton: true,';
+echo '        confirmButtonText: "Yes, verify it!",';
+echo '        cancelButtonText: "No, cancel!"';
+echo '    }).then((result) => {';
+echo '        if (result.isConfirmed) {';
+echo '            showverifyCase();';
+echo '        }';
+echo '    });';
+echo '}';
+
+echo 'function showverifyCase() {';
 echo '    Swal.fire({';
 echo '        title: "Good job!",';
 echo '        text: "You verified the case!",';
 echo '        icon: "success"';
 echo '    }).then((result) => {';
 echo '        if (result.isConfirmed) {';
-echo '            window.location.href = "verify_update.php?id_number=' . $id_number . '";';
+echo '            window.location.href = "verify_update.php?case_number=' . $case_number . '";';
 echo '        }';
 echo '    });';
 echo '}';
 
-echo 'function declineCase() {';
+
+echo 'function showverifyCase() {';
+    echo '    Swal.fire({';
+    echo '        title: "Good job!",';
+    echo '        text: "You verified the case!",';
+    echo '        icon: "success"';
+    echo '    }).then((result) => {';
+    echo '        if (result.isConfirmed) {';
+    echo '            fetch("verify_update.php?case_number=' . $case_number . '")';
+    echo '            .then(response => {';
+    echo '                if(response.ok) {';
+    echo '                    window.location.href = "assigned_cases.php";';
+    echo '                } else {';
+    echo '                    throw new Error("Verification failed");';
+    echo '                }';
+    echo '            })';
+    echo '            .catch(error => {';
+    echo '                console.error("Error:", error);';
+    echo '            });';
+    echo '        }';
+    echo '    });';
+    echo '}';
+    
+
+echo 'function confirmDecline() {';
 echo '    Swal.fire({';
 echo '        title: "Are you sure?",';
-echo '        text: "This action will decline the case!",';
+echo '        text: "Do you want to decline this case?",';
 echo '        icon: "warning",';
 echo '        showCancelButton: true,';
-echo '        confirmButtonText: "Yes, Decline the case!",';
-echo '        cancelButtonText: "Cancel"';
+echo '        confirmButtonText: "Yes, decline it!",';
+echo '        cancelButtonText: "No, cancel!"';
 echo '    }).then((result) => {';
 echo '        if (result.isConfirmed) {';
-echo '            window.location.href = "decline_case.php?id_number=' . $id_number . '";';
+echo '            showDeclineForm();';
 echo '        }';
 echo '    });';
 echo '}';
+
+echo 'function showDeclineForm() {';
+echo '    Swal.fire({';
+echo '        title: "Decline Case",';
+echo '        html: `';
+echo '            <form id="decline-form">';
+echo '                <input type="hidden" name="case_number" value="' . htmlspecialchars($case_number) . '">';
+echo '                <div class="form-group">';
+echo '                    <label for="decline_reason">Reason for Decline:</label>';
+echo '                    <textarea id="decline_reason" name="decline_reason" required></textarea>';
+echo '                </div>';
+echo '                <div class="buttons-container">';
+echo '                    <button type="button" class="decline-btn" onclick="submitDecline()">Submit Decline</button>';
+echo '                </div>';
+echo '            </form>`,';
+echo '        showCancelButton: false,';
+echo '        showConfirmButton: false';
+echo '    });';
+echo '}';
+
+echo 'function submitDecline() {';
+echo '    const formData = new FormData(document.getElementById("decline-form"));';
+echo '    fetch("decline_case.php", { method: "POST", body: formData })';
+echo '    .then(response => {';
+echo '        if(response.ok) {';
+echo '            Swal.fire({';
+echo '                title: "Case Declined!",';
+echo '                text: "Your case has been declined successfully.",';
+echo '                icon: "success"';
+echo '            }).then(() => {';
+echo '                window.location.href = "assigned_cases.php";';
+echo '            });';
+echo '        } else {';
+echo '            throw new Error("Network response was not ok");';
+echo '        }';
+echo '    })';
+echo '    .catch(error => {';
+echo '        console.error("Error submitting decline form:", error);';
+echo '    });';
+echo '}';
+
 echo '</script>';
 
 // Close the database connection

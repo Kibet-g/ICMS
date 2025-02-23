@@ -1,5 +1,4 @@
-<!--INCLUDE AUTHENTHICATION CONNECTION-->
-<!--INCLUDE DATABASE CONNECTION-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,8 +32,6 @@
         <ul class="menu_items">
           <div class="menu_title menu_dahsboard"></div>
           
-
-          <!-- duplicate this li tag if you want to add or remove  navlink with submenu -->
           <!-- start -->
             <a href="assigned_cases.php" class="nav_link">
               <span class="navlink_icon">
@@ -44,22 +41,22 @@
             </a>
 
 
-            <a href="manage_cases.php" class="nav_link">
+            <a href="update_criminal.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-grid-alt"></i>
               </span>
-              <span class="navlink">MANAGE CASES</span>
+              <span class="navlink">UPDATE CRIMINALS</span>
             </a>
             
 
-            <a href="schedule.php" class="nav_link">
+            <a href="police_logout.php" class="nav_link">
               <span class="navlink_icon">
-                <i class="bx bx-flag"></i>
+              <i class="bx bx-log-out"></i>
               </span>
-              <span class="navlink">SCHEDULE</span>
+              <span class="navlink">Logout</span>
             </a>
+          </div>
 
-        
         <!-- Sidebar Open / Close -->
         <div class="bottom_content">
           <div class="bottom expand_sidebar">

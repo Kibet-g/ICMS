@@ -49,32 +49,75 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/view_details.css">
     <title>User Details</title>
+    <!-- Include SweetAlert2 CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.10/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.10/dist/sweetalert2.all.min.js"></script>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="container">
-     
-       
         <div class="form-container">
-        <h2>User Details</h2>
-    <form method="post" action="update_details.php"> <!-- Assuming you'll have a separate PHP file to handle the form submission -->
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="<?php echo $name; ?>" readonly><br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<?php echo $email; ?>"><br><br>
-        
-        <label for="id_number">ID Number:</label>
-        <input type="text" id="id_number" name="id_number" value="<?php echo $id_number; ?>" readonly><br><br>
-        
-        <label for="idtype">ID Type:</label>
-        <input type="text" id="idtype" name="idtype" value="<?php echo $idtype; ?>" readonly><br><br>
-        
-        <label for="mobile_no">Mobile Number:</label>
-        <input type="text" id="mobile_no" name="mobile_no" value="<?php echo $mobile_no; ?>"><br><br>
-        
-        <input type="submit" value="Update">
-    </form>
+            <h2>User Details</h2>
+            <form id="updateForm" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($name); ?>" readonly><br><br>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>"><br><br>
+                
+                <label for="id_number">ID Number:</label>
+                <input type="text" id="id_number" name="id_number" value="<?php echo htmlspecialchars($id_number); ?>" readonly><br><br>
+                
+                <label for="idtype">ID Type:</label>
+                <input type="text" id="idtype" name="idtype" value="<?php echo htmlspecialchars($idtype); ?>" readonly><br><br>
+                
+                <label for="mobile_no">Mobile Number:</label>
+                <input type="text" id="mobile_no" name="mobile_no" value="<?php echo htmlspecialchars($mobile_no); ?>"><br><br>
+                
+                <input type="button" value="update" id="updateButton">
+            </form>
         </div>
     </div>
+
+    <script>
+    $(document).ready(function() {
+        $('#updateButton').on('click', function() {
+            Swal.fire({
+                title: "Do you want to change your details?",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Change",
+                denyButtonText: `Don't Change`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: 'update_details.php',
+                        type: 'POST',
+                        data: $('#updateForm').serialize(),
+                        success: function(response) {
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: "Your Details have been changed Successfully",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!'
+                            });
+                        }
+                    });
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>

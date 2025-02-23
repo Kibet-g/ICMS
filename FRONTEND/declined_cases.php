@@ -34,6 +34,7 @@ if (isset($_SESSION['email'])) {
                         <tr>
                             <th>Name</th>
                             <th>ID Number</th>
+                            <th>Case Number</th>
                             <th>Mobile Number</th>
                             <th>Location</th>
                             <th>Occurrence Date</th>
@@ -49,6 +50,7 @@ if (isset($_SESSION['email'])) {
                             <tr>
                                 <td><?php echo $row["name"]; ?></td>
                                 <td><?php echo $row["id_number"]; ?></td>
+                                <td><?php echo $row["case_number"]; ?></td>
                                 <td><?php echo $row["mobile_no"]; ?></td>
                                 <td><?php echo $row["location"]; ?></td>
                                 <td><?php echo $row["occurence_date"]; ?></td>

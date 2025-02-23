@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    text-align: center;
+    margin: 60px; 
+}
+
+table {
+    width: 80%; /* Adjust width as needed */
+    margin: 50px auto; /* Center the table on the page */
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+td button:last-child {
+    margin-bottom: 0;
+}
+
+tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        
+        
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .action-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .action-buttons button.delete {
+            background-color: #f44336;
+        }
+        .action-buttons button:hover {
+            opacity: 0.8;
+        }
+        form {
+            display: inline;
+        }

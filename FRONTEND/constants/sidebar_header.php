@@ -74,6 +74,6 @@
       </div>
     </nav>
     <!-- JavaScript -->
-    <script src="./Javascript/dashboard.js"></script>
+    <script src="./Javascript/sidebar.js"></script>
   </body>
 </html>

@@ -11,7 +11,7 @@ $error_message = '';
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get admin ID and password from the form
-    $admin_id = mysqli_real_escape_string($conn, $_POST['policeid']);
+    $admin_id = mysqli_real_escape_string($conn, $_POST['adminid']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     
     // Query to fetch admin details from the database
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['loggedin'] = true;
         
         // Redirect to admin page
-        header("Location: admin_page.php");
+        header("Location: admin_dashboard.php");
         exit;
     } else {
         // Invalid admin ID or password
@@ -54,7 +54,7 @@ mysqli_close($conn);
     <?php endif; ?>
     <p>Hello ADMIN Please log in to continue.</p>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <input type="policeid" name="policeid" placeholder="ADMIN ID" required>
+        <input type="adminid" name="adminid" placeholder="ADMIN ID" required>
         <input type="password" name="password" placeholder="Password" required>
         <button type="submit" class="login-button">Login</button>
     </form>

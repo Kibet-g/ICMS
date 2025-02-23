@@ -21,7 +21,7 @@ body {
     font-weight: bold;
 }
 
-input[type="policeid"],
+input[type="adminid"],
 input[type="password"] {
     width: 100%;
     padding: 10px;

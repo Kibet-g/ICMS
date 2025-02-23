@@ -7,9 +7,6 @@ body {
     background-color: #f0f0f0;
 }
 
-
-
-
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -38,7 +35,8 @@ form input[type="text"],
 form input[type="date"],
 form input[type="time"],
 form input[type="file"],
-form textarea {
+form textarea,
+form select {
     width: 100%;
     padding: 15px;
     margin-bottom: 15px;
@@ -47,7 +45,8 @@ form textarea {
     font-size: 16px;
 }
 
-form input[type="submit"] {
+form input[type="submit"],
+.report-btn {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -55,35 +54,34 @@ form input[type="submit"] {
     cursor: pointer;
 }
 
-form input[type="submit"]:hover {
+form input[type="submit"]:hover,
+.report-btn:hover {
     background-color: #0056b3;
 }
 
-.report-form{
+.report-form {
     width: 400px;
     height: auto;
     background-color: #fff;
     padding: 100px;
     border-radius: 40px;
-    box-shadow: #000000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow */
     text-align: center;
 }
+
 .report-form h1 {
     margin-bottom: 20px;
     font-size: 24px;
-  }
+}
 
-  .report-form .report-btn {
+.report-form .report-btn {
     display: block;
     width: 100%;
     padding: 15px;
-    background-color: #003DB5;
+    background-color: #003db5;
     color: #fff;
     border: none;
     border-radius: 3px;
     font-size: 16px;
     cursor: pointer;
-  }
-  
-  
-  
+}

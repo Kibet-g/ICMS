@@ -32,14 +32,12 @@ if (isset($_SESSION['email'])) {
                     <h2>User Case Details</h2>
                     <table>
                         <tr>
-                            <th>Name</th>
-                            <th>ID Number</th>
-                            <th>Mobile Number</th>
                             <th>Location</th>
                             <th>Occurrence Date</th>
                             <th>Occurrence Time</th>
                             <th>ID Upload</th>
                             <th>Description</th>
+                            <th>OB_Number</th>
                             <th>Status</th>
                         </tr>
                         <?php
@@ -47,9 +45,6 @@ if (isset($_SESSION['email'])) {
                         while($row = $result->fetch_assoc()) {
                             ?>
                             <tr>
-                                <td><?php echo $row["name"]; ?></td>
-                                <td><?php echo $row["id_number"]; ?></td>
-                                <td><?php echo $row["mobile_no"]; ?></td>
                                 <td><?php echo $row["location"]; ?></td>
                                 <td><?php echo $row["occurence_date"]; ?></td>
                                 <td><?php echo $row["occurence_time"]; ?></td>
@@ -57,8 +52,10 @@ if (isset($_SESSION['email'])) {
     <img src="../FRONTEND/<?php echo htmlspecialchars($row['id_upload']); ?>" alt="ID Upload">
 </a></td>
                                 <td><?php echo $row["description"]; ?></td>
+                                <td><?php echo $row["ob_number"]; ?></td>
+
                                 <td>
-    <a href="view_download-OB.php?id=<?php echo $row['email']; ?>" 
+    <a href="view_download-OB.php?id=<?php echo $row['ob_number']; ?>" 
        style="display: inline-block; padding: 8px 16px; background-color: #099c1f; color: white; text-align: center; text-decoration: none; border: none; border-radius: 4px; cursor: pointer;">
         Verified
                         </a>

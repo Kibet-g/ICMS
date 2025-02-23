@@ -24,8 +24,6 @@ echo '<link rel="stylesheet" href="css/assigned_cases.css">';
 echo '</head>';
 echo '<body>';
 
-
-
 // Main content
 echo '<div class="main-content">';
 echo '<h2>Uploaded Cases</h2>';
@@ -39,10 +37,6 @@ echo '<th>Email</th>';
 echo '<th>ID Number</th>';
 echo '<th>Mobile Number</th>';
 echo '<th>Location</th>';
-echo '<th>Occurrence Date</th>';
-echo '<th>Occurrence Time</th>';
-echo '<th>Description</th>';
-echo '<th>Uploaded ID</th>';
 echo '<th>Action</th>';
 echo '</tr>';
 
@@ -52,28 +46,16 @@ $case_number = 1;
 // Loop through the query results and display each row in the table
 while ($row = mysqli_fetch_assoc($result)) {
     echo '<tr>';
-    echo '<td>' . $case_number . '</td>';
+    echo '<td>' . htmlspecialchars($row['case_number']) . '</td>';
     echo '<td>' . htmlspecialchars($row['name']) . '</td>';
     echo '<td>' . htmlspecialchars($row['email']) . '</td>';
     echo '<td>' . htmlspecialchars($row['id_number']) . '</td>';
     echo '<td>' . htmlspecialchars($row['mobile_no']) . '</td>';
     echo '<td>' . htmlspecialchars($row['location']) . '</td>';
-    echo '<td>' . htmlspecialchars($row['occurence_date']) . '</td>';
-    echo '<td>' . htmlspecialchars($row['occurence_time']) . '</td>';
-    echo '<td>' . htmlspecialchars($row['description']) . '</td>';
-   
-    
-    // Display image with a clickable link for viewing in full screen
-
-    echo '<td><a href="../FRONTEND/' . htmlspecialchars($row['id_upload']) . '" target="_blank"><img src="../FRONTEND/' . htmlspecialchars($row['id_upload']) . '" alt="ID Upload"></a></td>';
-
-
     //Buttons for Verifying and Assigning OB number
     echo '<td style="display: flex; flex-direction: column; justify-content: center;">';
-    echo '<a class="verify-btn" href="verify_case.php?id_number=' . urlencode($row['id_number']) . '">Verify Case</a>';
+    echo '<a class="verify-btn" href="verify_case.php?case_number=' . urlencode($row['case_number']) . '">View case</a>';
     echo '</td>';
-
-    
     echo '</tr>';
     $case_number++;
 }
